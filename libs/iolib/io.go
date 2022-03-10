@@ -4,6 +4,8 @@ import (
 	"bufio"
 	"fmt"
 	"io"
+	"log"
+	"os"
 )
 
 func Uniq(input io.Reader, output io.Writer) error {
@@ -24,4 +26,13 @@ func Uniq(input io.Reader, output io.Writer) error {
 		}
 	}
 	return nil
+}
+
+func ReadStringAndPrint(f *os.File) {
+	reader := bufio.NewReader(f)
+	input, err := reader.ReadString('\n')
+	if err != nil {
+		log.Fatalln(err)
+	}
+	fmt.Println(input)
 }
