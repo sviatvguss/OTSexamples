@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"guss.com/examples/libs/iolib"
+	"guss.com/examples/libs/netlib"
 	"guss.com/examples/libs/strlib"
 	"guss.com/examples/libs/timelib"
 	"os"
@@ -14,10 +15,10 @@ func main() {
 	fmt.Scan(&choice)
 
 	switch choice {
-	case 1:
+	case 1: // time
 		fmt.Println("Good luck!")
 		fmt.Printf("Time is %s\n", timelib.GetTime())
-	case 2:
+	case 2: //io
 		fmt.Println("Введите набор строк:")
 		err := iolib.Uniq(os.Stdin, os.Stdout)
 		if err != nil {
@@ -31,6 +32,8 @@ func main() {
 		iolib.ReadStringAndPrint(f)
 	case 5:
 		fmt.Println(timelib.GetRandomVal(1000))
+	case 6:
+		netlib.GetHttp("https://ya.ru")
 	}
 
 }
